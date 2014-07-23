@@ -12,50 +12,50 @@ define([
     'plugins/rules/rules',
     'element/header.element',
     'element/footer.element',
-    'plugins/site.preferences/element/site.preferences.content.element',
-    'plugins/site.preferences/element/site.preferences.element'
-], function defineSitePreferencesView(AntHill, BaseView, BaseRules, Header, Footer, SitePreferencesContentElement, SitePreferencesElement) {
+    'plugins/site.config/element/site.config.content.element',
+    'plugins/site.config/element/site.config.element'
+], function defineSiteConfigView(AntHill, BaseView, BaseRules, Header, Footer, SiteConfigContentElement, SiteConfigElement) {
 
     /**
      * Define view
-     * @class SitePreferencesView
+     * @class SiteConfigView
      * @constructor
      * @extends BaseView
      * @extends BaseRules
      */
-    var SitePreferencesView = function SitePreferencesView() {
+    var SiteConfigView = function SiteConfigView() {
     };
 
-    return SitePreferencesView.extend('SitePreferencesView', {
+    return SiteConfigView.extend('SiteConfigView', {
 
         /**
-         * Render SitePreferences
-         * @member SitePreferencesView
+         * Render SiteConfig
+         * @member SiteConfigView
          * @returns {boolean}
          */
-        renderSitePreferences: function renderSitePreferences() {
+        renderSiteConfig: function renderSiteConfig() {
 
             this.header(Header, this.elements.$container).setText(
                 'Site Preferences'
             );
 
             /**
-             * Define SitePreferences element
-             * @type {SitePreferencesElement}
+             * Define SiteConfig element
+             * @type {SiteConfigElement}
              */
-            this.elements.$site = new SitePreferencesElement(this, {
+            this.elements.$siteconfig = new SiteConfigElement(this, {
                 id: this.createUUID(),
                 $container: this.elements.$container.$
             });
 
             this.footer(Footer, this.elements.$container).setHtml(
-                this.elements.$site.getFooter()
+                this.elements.$siteconfig.getFooter()
             );
         },
 
         /**
-         * Render site.preferences content
-         * @member SitePreferencesView
+         * Render site.config content
+         * @member SiteConfigView
          * @param data
          * @returns {boolean}
          */
@@ -66,7 +66,7 @@ define([
              * @type {{}}
              */
             this.elements.items = {};
-            this.elements.$site.empty();
+            this.elements.$siteconfig.empty();
 
             for (var index in data) {
 
@@ -74,14 +74,14 @@ define([
 
                     /**
                      * Render item
-                     * @type {SitePreferencesContentElement}
+                     * @type {SiteConfigContentElement}
                      */
-                    var $item = new SitePreferencesContentElement(this, {
+                    var $item = new SiteConfigContentElement(this, {
                         style: [
                             'content',
                             data[index].title.toDash()
                         ].join(' '),
-                        $container: this.elements.$site.$,
+                        $container: this.elements.$siteconfig.$,
                         data: data[index]
                     });
 
@@ -89,18 +89,18 @@ define([
                 }
             }
 
-            this.elements.$site.scrollCover(
+            this.elements.$siteconfig.scrollCover(
                 this.elements.$container.$
             );
 
             this.footer(Footer, this.elements.$container).setHtml(
-                this.elements.$site.getFooter()
+                this.elements.$siteconfig.getFooter()
             );
         },
 
         /**
          * Show Preferences
-         * @member SitePreferencesView
+         * @member SiteConfigView
          * @param opts
          * @param {Array} map
          */
@@ -110,7 +110,7 @@ define([
              * Define $html
              * @type {string}
              */
-            var $html = this.elements.$site.getPreferencesHtml(map);
+            var $html = this.elements.$siteconfig.getPreferencesHtml(map);
 
             /**
              * Define buttons
@@ -126,7 +126,7 @@ define([
                 reject: {
                     text: 'Cancel',
                     events: {
-                        click: ['revertSitePreferences', 'rejectModalEvent']
+                        click: ['revertSiteConfig', 'rejectModalEvent']
                     }
                 }
             };
@@ -158,14 +158,14 @@ define([
         },
 
         /**
-         * Render site.preferences
-         * @member SitePreferencesView
+         * Render site.config
+         * @member SiteConfigView
          */
         render: function render() {
 
             this.scope.observer.publish(
                 this.scope.eventmanager.eventList.successRendered,
-                this.renderSitePreferences.bind(this)
+                this.renderSiteConfig.bind(this)
             );
         }
 

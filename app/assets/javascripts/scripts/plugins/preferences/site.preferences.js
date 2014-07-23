@@ -1,41 +1,30 @@
 /**
- * Created with JetBrains RubyMine.
+ * Created with RubyMine.
  * User: teamco
- * Date: 5/9/13
- * Time: 11:48 AM
+ * Date: 7/23/14
+ * Time: 8:50 PM
  */
 
 define([
-    'modules/Element'
-], function defineSitePreferencesElement(BaseElement) {
+    'plugins/preferences/preferences'
+], function defineSitePreferences(BasePreferences) {
 
     /**
-     * Define SitePreferences Element
-     * @param view
-     * @param opts
-     * @returns {SitePreferencesElement}
+     * Define prefs
+     * @class SitePrefsPreferences
+     * @extends Renderer
+     * @extends BasePreferences
      * @constructor
-     * @class SitePreferencesElement
-     * @extends BaseElement
      */
-    var SitePreferencesElement = function SitePreferencesElement(view, opts) {
+    var SitePrefsPreferences = function SitePrefsPreferences() {
 
-        this._config(view, opts, $('<ul />')).build({
-            $container: opts.$container,
-            destroy: false
-        });
-
-        this.addCSS('site.preferences');
-        this.addCSS('preferences');
-
-        return this;
     };
 
-    return SitePreferencesElement.extend('SitePreferencesElement', {
+    return SitePrefsPreferences.extend('SitePrefsPreferences', {
 
         /**
          * Toggle fieldset
-         * @member SitePreferencesElement
+         * @member SitePrefsPreferences
          * @param e
          */
         toggleFieldset: function toggleFieldset(e) {
@@ -56,20 +45,8 @@ define([
         },
 
         /**
-         * Get footer html
-         * @member SitePreferencesElement
-         * @returns {*|jQuery}
-         */
-        getFooter: function getFooter() {
-            return $('<div />').text([
-                this.base.lib.hash.hashLength({}),
-                'items'
-            ].join(' '));
-        },
-
-        /**
          * Get preferences HTML
-         * @member SitePreferencesElement
+         * @member SitePrefsPreferences
          * @param {Array} map
          * @return string
          */
@@ -84,7 +61,7 @@ define([
 
         /**
          * Render static width
-         * @member SitePreferencesElement
+         * @member SitePrefsPreferences
          * @returns {*|jQuery}
          */
         siteStaticWidth: function siteStaticWidth() {
@@ -130,7 +107,7 @@ define([
 
         /**
          * Enable/Disable slider
-         * @member SitePreferencesElement
+         * @member SitePrefsPreferences
          * @param e
          */
         toggleSlider: function toggleSlider(e) {
@@ -162,7 +139,7 @@ define([
 
         /**
          * Render width slider
-         * @member SitePreferencesElement
+         * @member SitePrefsPreferences
          * @param {Array} map
          * @returns {*|jQuery}
          */
@@ -240,6 +217,6 @@ define([
             );
         }
 
-    }, BaseElement.prototype);
-
+    }, BasePreferences.prototype);
 });
+

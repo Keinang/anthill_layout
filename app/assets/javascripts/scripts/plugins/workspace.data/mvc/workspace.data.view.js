@@ -24,7 +24,7 @@ define(
      * @param {BasePreferences} BasePreferences
      * @param {BaseView} Header
      * @param {BaseView} Footer
-     * @param {WorkspaceDataContentElement} WorkspaceDataContent
+     * @param {WorkspaceDataContentElement} WorkspaceDataContentElement
      * @param {WorkspaceDataPreferencesElement} WorkspaceDataPreferencesElement
      * @param {WorkspaceDataAddPageElement} WorkspaceDataAddPageElement
      * @param {WorkspaceDataElement} WorkspaceDataElement

@@ -7,18 +7,18 @@
 
 define([
     'modules/Element'
-], function defineSitePreferencesContentElement(BaseElement) {
+], function defineSiteConfigContentElement(BaseElement) {
 
     /**
-     * Define SitePreferences Content Element
+     * Define SiteConfig Content Element
      * @constructor
-     * @class SitePreferencesContentElement
+     * @class SiteConfigContentElement
      * @extends BaseElement
      * @param view
      * @param opts
-     * @returns {SitePreferencesContentElement}
+     * @returns {SiteConfigContentElement}
      */
-    var SitePreferencesContentElement = function SitePreferencesContentElement(view, opts) {
+    var SiteConfigContentElement = function SiteConfigContentElement(view, opts) {
 
         this._config(view, opts, $('<li />')).build({
             $container: opts.$container,
@@ -31,11 +31,11 @@ define([
         return this;
     };
 
-    return SitePreferencesContentElement.extend('SitePreferencesContentElement', {
+    return SiteConfigContentElement.extend('SiteConfigContentElement', {
 
         /**
          * Set item attributes
-         * @member SitePreferencesContentElement
+         * @member SiteConfigContentElement
          * @param data
          */
         setAttributes: function setAttributes(data) {
@@ -49,14 +49,14 @@ define([
 
         /**
          * Show content preferences
-         * @member SitePreferencesContentElement
+         * @member SiteConfigContentElement
          * @param data
          */
         showContentPreferences: function showContentPreferences(data) {
 
             /**
              * Define scope
-             * @type {SitePreferences}
+             * @type {SiteConfig}
              */
             var scope = this.view.scope;
 

@@ -8,19 +8,19 @@
 
 define([
     'modules/Permission'
-], function defineSitePreferencesPermission(BasePermission) {
+], function defineSiteConfigPermission(BasePermission) {
 
     /**
      * Define Permissions
-     * @class SitePreferencesPermission
+     * @class SiteConfigPermission
      * @constructor
      * @extends BasePermission
      */
-    var SitePreferencesPermission = function SitePreferencesPermission() {
+    var SiteConfigPermission = function SiteConfigPermission() {
 
     };
 
-    return SitePreferencesPermission.extend('SitePreferencesPermission', {
+    return SiteConfigPermission.extend('SiteConfigPermission', {
 
     }, BasePermission.prototype);
 });

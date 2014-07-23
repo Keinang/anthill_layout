@@ -8,23 +8,23 @@
 define([
     'config/anthill',
     'plugins/plugin'
-], function defineSitePreferencesController(AntHill, PluginBase) {
+], function defineSiteConfigController(AntHill, PluginBase) {
 
     /**
      * Define site controller
-     * @class SitePreferencesController
+     * @class SiteConfigController
      * @extends AntHill
      * @extends PluginController
      * @constructor
      */
-    var SitePreferencesController = function SitePreferencesController() {
+    var SiteConfigController = function SiteConfigController() {
     };
 
-    return SitePreferencesController.extend('SitePreferencesController', {
+    return SiteConfigController.extend('SiteConfigController', {
 
         /**
          * Load page.data content
-         * @member SitePreferencesController
+         * @member SiteConfigController
          * @param opened
          */
         loadContent: function loadContent(opened) {
@@ -38,7 +38,7 @@ define([
 
         /**
          * Load preferences
-         * @member SitePreferencesController
+         * @member SiteConfigController
          * @param data
          */
         loadPreferences: function loadPreferences(data) {
@@ -47,13 +47,13 @@ define([
 
         /**
          * Approve update preferences
-         * @member SitePreferencesController
+         * @member SiteConfigController
          */
         approveUpdatePreferences: function approveUpdatePreferences() {
 
             /**
              * Define scope
-             * @type {SitePreferences}
+             * @type {SiteConfig}
              */
             var scope = this.scope,
                 workspace = scope.controller.getWorkspace();
@@ -66,9 +66,9 @@ define([
 
         /**
          * Revert preferences on cancel
-         * @member SitePreferencesController
+         * @member SiteConfigController
          */
-        revertSitePreferences: function revertSitePreferences() {
+        revertSiteConfig: function revertSiteConfig() {
 
             /**
              * Define workspace

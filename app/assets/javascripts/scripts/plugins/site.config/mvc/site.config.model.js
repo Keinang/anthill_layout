@@ -7,19 +7,19 @@
  */
 define([
     'modules/Model'
-], function defineSitePreferencesModel(BaseModel) {
+], function defineSiteConfigModel(BaseModel) {
 
     /**
-     * Define SitePreferences model
+     * Define SiteConfig model
      * @extends BaseModel
-     * @class SitePreferencesModel
+     * @class SiteConfigModel
      * @constructor
      */
-    var SitePreferencesModel = function SitePreferencesModel() {
+    var SiteConfigModel = function SiteConfigModel() {
 
         /**
          * Define site preferences data
-         * @member SitePreferencesModel
+         * @member SiteConfigModel
          * @type {{preferences: {title: string, description: string}}}
          */
         this.data = {
@@ -31,17 +31,17 @@ define([
 
         /**
          * Define site width values
-         * @member SitePreferencesModel
+         * @member SiteConfigModel
          * @type {number[]}
          */
         this.map = [960, 1024, 1040, 1140, 1280, 1920];
     };
 
-    return SitePreferencesModel.extend('SitePreferencesModel', {
+    return SiteConfigModel.extend('SiteConfigModel', {
 
         /**
          * Get data
-         * @member SitePreferencesModel
+         * @member SiteConfigModel
          * @returns {{preferences: {title: string, description: string}}}
          */
         getData: function getData() {
