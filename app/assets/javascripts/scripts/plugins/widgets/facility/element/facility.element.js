@@ -49,7 +49,12 @@ define([
                 ],
                 Fun: [
                     ["Photography", 0]
+                ],
+                Personal: [
+                    ["color": "red"],
+                    ["number", 11]
                 ]
+                
             };
 
             for (var index in profile) {
